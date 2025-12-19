@@ -9,18 +9,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      # استخدام إصدار Java يتوافق مع المشاريع القديمة والحديثة
-      - name: Set up JDK 17
+      # استخدام إصدار جافا أقدم قليلاً ليتوافق مع المشاريع القديمة
+      - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
+          java-version: '11'
           distribution: 'temurin'
           
-      # هنا قمنا بتحديد إصدار قديم ليتناسب مع مشروعك
+      # العودة لإصدار Flutter 2.10.0 (يدعم المشاريع القديمة)
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.10.0' 
+          flutter-version: '2.10.0' 
           channel: 'stable'
           
       - run: flutter pub get
