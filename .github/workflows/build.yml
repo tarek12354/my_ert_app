@@ -15,7 +15,7 @@ jobs:
           
       - run: flutter pub get
       
-      - run: flutter build apk --release
+      - run: flutter build apk --release --no-tree-shake-icons
 
       - name: Upload APK
         uses: actions/upload-artifact@v4 # التعديل الأهم هنا (v4 بدلاً من v3)
