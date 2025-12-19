@@ -1,17 +1,24 @@
 name: Build APK
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4 # تحديث إلى v4
+      
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          
       - run: flutter pub get
-      - run: flutter build apk --release --no-tree-shake-icons
+      
+      - run: flutter build apk --release
+
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # التعديل الأهم هنا (v4 بدلاً من v3)
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
