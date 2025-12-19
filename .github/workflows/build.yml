@@ -9,16 +9,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      # هذه الخطوة هي التي تنقصك لحل مشكلة الفشل السريع
+      # استخدام إصدار Java يتوافق مع المشاريع القديمة والحديثة
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
           
+      # هنا قمنا بتحديد إصدار قديم ليتناسب مع مشروعك
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.10.0' 
           channel: 'stable'
           
       - run: flutter pub get
