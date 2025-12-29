@@ -1,0 +1,132 @@
+.live-display {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.display-card {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1f2937 100%);
+  border: 2px solid rgba(100, 150, 255, 0.5);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(30, 58, 138, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 500px;
+  transition: all 0.3s ease;
+}
+
+.display-card:hover {
+  border-color: rgba(100, 150, 255, 0.8);
+  box-shadow: 0 25px 70px rgba(30, 58, 138, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.display-label {
+  font-size: 1.1rem;
+  color: #b0d4ff;
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.value-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  min-height: 80px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.resistance-value {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #60a5fa;
+  text-shadow: 0 0 30px rgba(96, 165, 250, 0.4);
+  font-family: 'Monaco', 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+.resistance-unit {
+  font-size: 2rem;
+  color: #93c5fd;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.no-data {
+  font-size: 1.5rem;
+  color: #6b7280;
+  font-style: italic;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.display-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(100, 150, 255, 0.2);
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.label {
+  color: #b0d4ff;
+  font-weight: 600;
+}
+
+.raw-data {
+  font-family: 'Monaco', 'Courier New', monospace;
+  color: #60a5fa;
+  word-break: break-all;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.placeholder {
+  color: #6b7280;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .display-card {
+    padding: 1.5rem;
+  }
+
+  .resistance-value {
+    font-size: 3rem;
+  }
+
+  .resistance-unit {
+    font-size: 1.5rem;
+  }
+
+  .display-info {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,109 @@
+.debug-footer {
+  background: rgba(15, 20, 25, 0.9);
+  border-top: 2px solid rgba(100, 150, 255, 0.2);
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.debug-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.debug-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 150px;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: pulse-status 2s ease-in-out infinite;
+}
+
+.status-indicator.connected {
+  background: #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.status-indicator.disconnected {
+  background: #ef4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+@keyframes pulse-status {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.status-text {
+  color: #d1d5db;
+  font-weight: 600;
+}
+
+.debug-data {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 300px;
+  overflow: hidden;
+}
+
+.debug-label {
+  color: #b0d4ff;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.debug-value {
+  font-family: 'Monaco', 'Courier New', monospace;
+  color: #60a5fa;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  border-left: 2px solid rgba(96, 165, 250, 0.3);
+}
+
+@media (max-width: 768px) {
+  .debug-footer {
+    padding: 0.75rem;
+  }
+
+  .debug-content {
+    gap: 1rem;
+  }
+
+  .debug-data {
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .debug-value {
+    width: 100%;
+    white-space: normal;
+    word-break: break-all;
+    text-overflow: unset;
+    overflow: visible;
+  }
+}
